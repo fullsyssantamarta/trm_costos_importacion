@@ -1,6 +1,6 @@
 {
     "name": "TRM Costos de Importación",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "category": "Purchase/Inventory",
     "summary": "TRM por compra y recepción con costo promedio ponderado",
     "author": "Tampa Soluciones",
