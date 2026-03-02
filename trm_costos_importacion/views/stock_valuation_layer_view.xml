@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_valuation_layer_tree_trm" model="ir.ui.view">
+        <field name="name">stock.valuation.layer.tree.trm</field>
+        <field name="model">stock.valuation.layer</field>
+        <field name="arch" type="xml">
+            <tree string="Costo del destino (TRM)">
+                <field name="create_date"/>
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="value"/>
+                <field name="purchase_id"/>
+                <field name="picking_id"/>
+                <field name="trm_rate"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_trm_costos_destino" model="ir.actions.act_window">
+        <field name="name">Costo del destino (TRM)</field>
+        <field name="res_model">stock.valuation.layer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_stock_valuation_layer_tree_trm"/>
+        <field name="domain">[("stock_move_id.picking_id.picking_type_id.code", "=", "incoming")]</field>
+    </record>
+
+    <menuitem id="menu_trm_costos_destino_root" name="Costo del destino (TRM)" parent="account.menu_finance" action="action_trm_costos_destino" sequence="90"/>
+
+    <record id="view_stock_valuation_layer_form_trm" model="ir.ui.view">
+        <field name="name">stock.valuation.layer.form.trm</field>
+        <field name="model">stock.valuation.layer</field>
+        <field name="inherit_id" ref="stock.view_stock_valuation_layer_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Costo del destino">
+                    <group>
+                        <field name="purchase_id"/>
+                        <field name="picking_id"/>
+                        <field name="trm_rate"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
