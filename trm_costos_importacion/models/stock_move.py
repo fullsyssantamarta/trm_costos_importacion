@@ -10,6 +10,13 @@ class StockMove(models.Model):
         related="picking_id.trm_rate",
         store=False
     )
+    company_currency_id = fields.Many2one(
+        comodel_name="res.currency",
+        string="Moneda de la compañía",
+        related="company_id.currency_id",
+        store=False,
+        readonly=True
+    )
     trm_price_unit = fields.Monetary(
         string="Precio TRM",
         currency_field="company_currency_id",
