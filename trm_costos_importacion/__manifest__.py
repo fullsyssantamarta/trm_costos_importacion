@@ -11,6 +11,6 @@
         "views/stock_picking_view.xml",
         "views/stock_valuation_layer_view.xml"
     ],
-    "installable": true,
-    "application": false
+    "installable": True,
+    "application": False
 }
